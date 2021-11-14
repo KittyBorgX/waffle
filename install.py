@@ -3,7 +3,6 @@
 from sys import platform
 from os import environ, system
 
-
 def write_to_rc(file_name):
     with open(file_name, 'a') as file:
         file.write('alias waffle="~/waffle/waffle/waffle.py"')
