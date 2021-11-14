@@ -4,12 +4,12 @@ A simple compiler for [Brain\*\*\*\*](https://en.wikipedia.org/wiki/Brainfuck) w
 
 ### Getting started:
 
-1. Clone the repository
+1. Clone the repository and add waffle to path
 
 ```sh
-git clone https://github.com/KittyBorgX/waffle.git && cd waffle
+cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle && chmod +x install.py && ./install.py
 ```
- 
+
 2. Install the dependencies
 
 ```sh
