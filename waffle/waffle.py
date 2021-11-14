@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 from utils import usage
+from interpreter import interpret
 stack = []
 
 def main():
@@ -20,11 +21,10 @@ def main():
 
         elif sys.argv[1] == '-f' or sys.argv[1] == '--file':
             if length_args == 2:
-                print("PLease provide a filename!")
+                print("Please provide a filename!")
                 sys.exit(0)
             else:
                 input_filename = sys.argv[2]
-                print("The file given is: ", input_filename)
         else:
             print("Invalid option! Use waffle -h to learn about the commands")
             sys.exit(0)
@@ -32,8 +32,8 @@ def main():
 
         try:
             with open(input_filename) as f:
-                print("File opened successfully")
-                # test_interpreter(input_filename)
+                contents = f.read()
+                interpret(contents)
         except FileNotFoundError:
             print("Could not open the file!")
             sys.exit(0)
