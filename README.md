@@ -9,7 +9,7 @@ A simple compiler for [Brain\*\*\*\*](https://en.wikipedia.org/wiki/Brainfuck) w
 ```sh
 git clone https://github.com/KittyBorgX/waffle.git && cd waffle
 ```
-
+ 
 2. Install the dependencies
 
 ```sh
