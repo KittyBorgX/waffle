@@ -1,25 +1,7 @@
 #!/usr/bin/env python3
 import sys
-
-def usage():
-    print("")
-    print("Waffle's Compiler!")
-    print("")
-    print("USAGE: ")
-    print("    waffle [OPTIONS] [SUBCOMMAND]")
-    print("")
-    print("OPTIONS:")
-    print("    -h, --help                     Prints help information")
-    print("    -v, --version                  Prints the compiler version")
-    print("")
-    print("SUBCOMMAND:")
-    print("    -f, --file [Input File]        Specify the input file")
-    print("")
-    print("OPTIONAL SUBCOMMANDS:")
-    print("    -o, --output                   Specify the output filename")
-    print("")
-    print("Example Usage: waffle examples/hello.bf -o hello")
-
+from utils import usage
+stack = []
 
 def main():
     length_args = len(sys.argv)
@@ -51,7 +33,8 @@ def main():
         try:
             with open(input_filename) as f:
                 print("File opened successfully")
-        except:
+                # test_interpreter(input_filename)
+        except FileNotFoundError:
             print("Could not open the file!")
             sys.exit(0)
 
