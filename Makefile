@@ -1,7 +1,11 @@
 init:
-    pip install -r requirements.txt
+	pip install -r requirements.txt
 
 test:
-    py.test tests
+	py.test tests
 
-.PHONY: init test
+run:
+	python waffle/waffle.py
+
+.PHONY: init test run
+
