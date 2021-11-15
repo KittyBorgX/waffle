@@ -7,7 +7,7 @@ A simple interpreter for [Brain\*\*\*\*](https://en.wikipedia.org/wiki/Brainfuck
 1. Clone the repository and add waffle to path
 
 ```sh
-cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle && chmod +x install.py && ./install.py
+cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle && chmod +x installer.py && ./installer.py
 ```
 
 2. Confirm the installation by running `waffle --help`
