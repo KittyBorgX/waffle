@@ -10,23 +10,7 @@ A simple compiler for [Brain\*\*\*\*](https://en.wikipedia.org/wiki/Brainfuck) w
 cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle && chmod +x install.py && ./install.py
 ```
 
-2. Install the dependencies
-
-```sh
-pip install -r requirements.txt
-```
-
-2.5 [Optional] Make a new environement for the project using anaconda
-
-```sh
-conda create -n waffle python=3.9
-```
-
-3. Run the compiler and follow the insturctions given:
-
-```sh
-python waffle/waffle.py
-```
+2. Confirm the installation by running `waffle --help`
 
 ### TODO:
 
