@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 import sys
-from utils import usage
+from utils import usage, check_brackets, colors
 from interpreter import interpret
-stack = []
 
 def main():
+    debugging = False
     length_args = len(sys.argv)
     # print("Length of args: ", length_args)
     if length_args < 2:
         usage()
+        # print(">>1> ")
         sys.exit(0)
 
     else:
@@ -25,6 +26,17 @@ def main():
                 sys.exit(0)
             else:
                 input_filename = sys.argv[2]
+
+
+        elif sys.argv[1] == '-df' or sys.argv[1] == '--debug-file':
+            if length_args == 2:
+                print("Please provide a filename!")
+                sys.exit(0)
+            else:
+                input_filename = sys.argv[2]
+                debugging = True
+
+
         else:
             print("Invalid option! Use waffle -h to learn about the commands")
             sys.exit(0)
@@ -33,9 +45,15 @@ def main():
         try:
             with open(input_filename) as f:
                 contents = f.read()
-                interpret(contents)
+                if debugging:
+                    check_brackets(contents)
+                    interpret(contents, len(contents))
+                else:
+                    interpret(contents, len(contents))
+
+
         except FileNotFoundError:
-            print("Could not open the file!")
+            print("Could not find the specified file!")
             sys.exit(0)
 
 if __name__ == '__main__':

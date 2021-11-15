@@ -34,6 +34,3 @@ python waffle/waffle.py
 - [ ] Native compiler ( Converting to assembly )
 - [ ] Command line REPL
 - [ ] Online REPL
-
-
-### LICENSING

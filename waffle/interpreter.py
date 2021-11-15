@@ -1,6 +1,7 @@
-def interpret(code):
+def interpret(code, arr_length):
     # initialize variables
-    data = [0] * 30000
+    data = [0] * arr_length
+    print(arr_length)
     ptr = 0
     code_ptr = 0
     while code_ptr < len(code):
@@ -29,6 +30,8 @@ def interpret(code):
             if data[ptr] == 0:
                 while code[code_ptr] != ']':
                     code_ptr += 1
+                # Check if there is no closing ] for the opening [
+
         # jump backward
         elif code[code_ptr] == ']':
             if data[ptr] != 0:
