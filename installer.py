@@ -13,6 +13,7 @@
 # ===----------------------------------------------------------------------===//
 
 
+from posixpath import expanduser
 from sys import platform
 from os import environ
 from pathlib import Path
@@ -22,21 +23,24 @@ def write_to_rc(file_name):
         file.write(f'alias waffle="{Path(__file__).parent.resolve()}/waffle/waffle.py"')
         print("Installed waffle in PATH. Run waffle -h to confirm the success of installation")
 
-if platform == "linux" or platform == "linux2":
-    if (environ['SHELL'] == '/usr/bin/zsh'):
-        linux_zsh = f"/home/{environ['USER']}/.zshrc"
-        write_to_rc(linux_zsh)
-    if (environ['SHELL'] == '/usr/bin/bash'):
-        linux_bash = f"/home/{environ['USER']}/.bash_profile"
-        write_to_rc(linux_bash)
+if platform in ['linux', 'linux2', 'darwin']:
+    # error free?
+    shell = environ.get('SHELL', '')
+    
+    if not shell:
+        print('The SHELL environmental variable is missing.')
+        exit()
 
-elif platform == "darwin":
-    if (environ['SHELL'] == '/bin/zsh'):
-        mac_zsh = f"/Users/{environ['USER']}/.zshrc"
-        write_to_rc(mac_zsh)
-    if (environ['SHELL'] == '/bin/bash'):
-        mac_bash = f"/Users/{environ['USER']}/.bash_profile"
-        write_to_rc(mac_bash)
+    # to be appended to later on
+    conf_file = expanduser('~/');
+
+    if shell in ['/bin/zsh', '/usr/bin/zsh']:
+        conf_file += '.zshrc'
+
+    if shell in ['/bin/bash', '/usr/bin/bash']:
+        conf_file += '.bash_profile'
+    
+    write_to_rc(conf_file)
 
 elif platform == "win32":
     print("Unimplemented lol")
