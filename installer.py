@@ -19,7 +19,6 @@ from os import environ, system
 def write_to_rc(file_name):
     with open(file_name, 'a') as file:
         file.write('alias waffle="~/waffle/waffle/waffle.py"')
-        system(f'source {file_name}')
         print("Installed waffle in PATH. Run waffle -h to confirm the success of installation")
 
 if platform == "linux" or platform == "linux2":
