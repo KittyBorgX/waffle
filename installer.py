@@ -14,7 +14,7 @@
 
 
 from sys import platform
-from os import environ, system
+from os import environ
 
 def write_to_rc(file_name):
     with open(file_name, 'a') as file:
