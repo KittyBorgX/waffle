@@ -31,12 +31,15 @@ def check_brackets(input_file):
             print(f"{colors.FAIL}No matching brackets found! Please close the [ bracket at index {i} and check again{colors.ENDC}")
             sys.exit(0)
     if brackets == 0:
-        # print(f"{colors.OKGREEN}All brackets match!{colors.ENDC}")
+        print(f"{colors.OKGREEN}Bracket Matching: True{colors.ENDC}")
         return 0
         # return -1
     else:
         print(f"{colors.FAIL}No matching brackets found! Please close the [ bracket and check again{colors.ENDC}")
         sys.exit(0)
+
+def print_arr_length(array):
+    print(f"{colors.OKGREEN}Array Length: {len(array)}{colors.ENDC}")
 
 class colors:
     HEADER = '\033[95m'

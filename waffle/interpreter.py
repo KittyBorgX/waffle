@@ -1,7 +1,6 @@
 def interpret(code, arr_length):
     # initialize variables
     data = [0] * arr_length
-    print(arr_length)
     ptr = 0
     code_ptr = 0
     while code_ptr < len(code):
