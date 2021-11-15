@@ -27,3 +27,13 @@ conda create -n waffle python=3.9
 ```sh
 python waffle/waffle.py
 ```
+
+### TODO:
+
+- [x] A simple Interpreter
+- [ ] Native compiler ( Converting to assembly )
+- [ ] Command line REPL
+- [ ] Online REPL
+
+
+### LICENSING
