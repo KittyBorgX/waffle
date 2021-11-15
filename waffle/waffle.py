@@ -13,6 +13,7 @@
 # ===----------------------------------------------------------------------===//
 
 import sys
+import threading
 from utils import usage, check_brackets, print_arr_length, colours
 from interpreter import interpret
 
@@ -80,11 +81,21 @@ def main():
             with open(input_filename) as f:
                 contents = f.read()
                 if debugging:
-                    check_brackets(contents)
-                    print_arr_length(contents)
-                    interpret(contents, len(contents))
+                    # check_brackets(contents)
+                    # print_arr_length(contents)
+                    # interpret(contents, len(contents))
+                    check_brackets_thread = threading.Thread(target=check_brackets, args=(contents,))
+                    print_arr_length_thread = threading.Thread(target=print_arr_length, args=(contents,))
+                    interpret_thread = threading.Thread(target=interpret, args=(contents, len(contents)))
+
+                    check_brackets_thread.start()
+                    print_arr_length_thread.start()
+                    interpret_thread.start()
+
                 else:
-                    interpret(contents, len(contents))
+                    # interpret(contents, len(contents))
+                    interpret_thread = threading.Thread(target=interpret, args=(contents, len(contents)))
+                    interpret_thread.start()
 
 
         except FileNotFoundError:
