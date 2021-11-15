@@ -1,6 +1,6 @@
 # waffle
 
-A simple compiler for [Brain\*\*\*\*](https://en.wikipedia.org/wiki/Brainfuck) written in python.
+A simple interpreter for [Brain\*\*\*\*](https://en.wikipedia.org/wiki/Brainfuck) written in python.
 
 ### Getting started:
 
