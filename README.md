@@ -16,5 +16,5 @@ cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle && c
 
 - [x] A simple Interpreter
 - [ ] Native compiler ( Converting to assembly )
-- [ ] Command line REPL
+- [x] Command line REPL
 - [ ] Online REPL

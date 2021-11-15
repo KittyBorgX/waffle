@@ -1,15 +1,31 @@
 #!/usr/bin/env python3
 import sys
-from utils import usage, check_brackets, colors
+from utils import usage, check_brackets, print_arr_length, colors
 from interpreter import interpret
+
+def repl() -> None:
+    try:
+        while True:
+            try:
+                repl_input = input(">> ")
+                try:
+                    interpret(repl_input, len(repl_input))
+                except:
+                    out = exec(repl_input)
+                    if out != None:
+                        print(out)
+            except Exception as e:
+                print(f"Error: {e}")
+    except KeyboardInterrupt as e:
+        print("\nExiting...")
 
 def main():
     debugging = False
     length_args = len(sys.argv)
     # print("Length of args: ", length_args)
     if length_args < 2:
-        usage()
-        # print(">>1> ")
+        # usage()
+        repl()
         sys.exit(0)
 
     else:
@@ -47,6 +63,7 @@ def main():
                 contents = f.read()
                 if debugging:
                     check_brackets(contents)
+                    print_arr_length(contents)
                     interpret(contents, len(contents))
                 else:
                     interpret(contents, len(contents))
