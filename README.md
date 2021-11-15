@@ -15,6 +15,11 @@ cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle && c
 ### TODO:
 
 - [x] A simple Interpreter
+- [ ] Documentation
 - [ ] Native compiler ( Converting to assembly )
 - [x] Command line REPL
 - [ ] Online REPL
+
+### Note:
+
+- If someone can PR the documentation for this using mkdocs, it would be awesome lol
