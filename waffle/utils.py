@@ -30,7 +30,7 @@ def usage():
     print("OPTIONAL SUBCOMMANDS:")
     print("    -o, --output [File]            Specify the output filename")
     print("")
-    print("Example Usage: waffle examples/hello.bf -o hello")
+    print("Example Usage: waffle examples/helloworld.bf -o hello")
 
 def check_brackets(input_file):
     brackets = 0
