@@ -15,10 +15,16 @@
 
 from posixpath import expanduser
 from sys import platform
-from os import environ
+from os import environ, path, stat
 from pathlib import Path
 
+def check_file_existance(file_name):
+    if not path.exists(file_name) or stat(file_name).st_size == 0:
+        open(file_name, 'w')
+
 def write_to_rc(file_name):
+    check_file_existance(file_name)
+
     with open(file_name, 'a') as file:
         file.write(f'alias waffle="{Path(__file__).parent.resolve()}/waffle/waffle.py"')
         print("Installed waffle in PATH. Run waffle -h to confirm the success of installation")
@@ -38,7 +44,11 @@ if platform in ['linux', 'linux2', 'darwin']:
         conf_file += '.zshrc'
 
     if shell in ['/bin/bash', '/usr/bin/bash']:
-        conf_file += '.bash_profile'
+        if platform == 'darwin':
+            conf_file += '.bash_profile'
+        
+        else:
+            conf_file += '.bash_aliases'
     
     write_to_rc(conf_file)
 
