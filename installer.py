@@ -19,7 +19,7 @@ from pathlib import Path
 
 def write_to_rc(file_name):
     with open(file_name, 'a') as file:
-        file.write(f'alias waffle="{Path().resolve()}/waffle/waffle.py"')
+        file.write(f'alias waffle="{Path(__file__).parent.resolve()}/waffle/waffle.py"')
         print("Installed waffle in PATH. Run waffle -h to confirm the success of installation")
 
 if platform == "linux" or platform == "linux2":
