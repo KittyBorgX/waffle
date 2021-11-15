@@ -23,7 +23,3 @@ cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle && c
 - [x] Command line REPL
 - [ ] Online REPL
 - [x] Multithreading??
-
-### Note:
-
-- If someone can PR the documentation for this using mkdocs, it would be awesome lol
