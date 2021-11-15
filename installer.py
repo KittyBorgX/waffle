@@ -13,30 +13,53 @@
 # ===----------------------------------------------------------------------===//
 
 
+from posixpath import expanduser
 from sys import platform
-from os import environ, system
+from os import environ, path, stat, system
+from pathlib import Path
+
+# error free?
+shell = environ.get('SHELL', '')
+
+def check_file_existance(file_name):
+    if not path.exists(file_name) or stat(file_name).st_size == 0:
+        open(file_name, 'w')
 
 def write_to_rc(file_name):
-    with open(file_name, 'a') as file:
-        file.write('alias waffle="~/waffle/waffle/waffle.py"')
-        system(f'source {file_name}')
-        print("Installed waffle in PATH. Run waffle -h to confirm the success of installation")
+    check_file_existance(file_name)
 
-if platform == "linux" or platform == "linux2":
-    if (environ['SHELL'] == '/usr/bin/zsh'):
-        linux_zsh = f"/home/{environ['USER']}/.zshrc"
-        write_to_rc(linux_zsh)
-    if (environ['SHELL'] == '/usr/bin/bash'):
-        linux_bash = f"/home/{environ['USER']}/.bash_profile"
-        write_to_rc(linux_bash)
+    # check if installer has already ran, warn
+    for line in open(file_name, 'r').readlines():
+        if 'alias waffle' in line:
+            print('Waffle alias found in your configuration file, not finishing instalation.')
+            exit()
 
-elif platform == "darwin":
-    if (environ['SHELL'] == '/bin/zsh'):
-        mac_zsh = f"/Users/{environ['USER']}/.zshrc"
-        write_to_rc(mac_zsh)
-    if (environ['SHELL'] == '/bin/bash'):
-        mac_bash = f"/Users/{environ['USER']}/.bash_profile"
-        write_to_rc(mac_bash)
+    open(file_name, 'a').write(f'alias waffle=\'{Path(__file__).parent.resolve()}/waffle/waffle.py\'')
+
+    print('Successfully made waffle globally acessible, reloading shell for changes to take effect...')
+
+    # auto reload shell
+    system(shell)
+
+if platform in ['linux', 'linux2', 'darwin']:    
+    if not shell:
+        print('The SHELL environmental variable is missing.')
+        exit()
+
+    # to be appended to later on
+    conf_file = expanduser('~/');
+
+    if shell in ['/bin/zsh', '/usr/bin/zsh']:
+        conf_file += '.zshrc'
+
+    if shell in ['/bin/bash', '/usr/bin/bash']:
+        if platform == 'darwin':
+            conf_file += '.bash_profile'
+        
+        else:
+            conf_file += '.bash_aliases'
+    
+    write_to_rc(conf_file)
 
 elif platform == "win32":
     print("Unimplemented lol")
