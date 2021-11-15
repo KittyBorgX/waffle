@@ -6,7 +6,7 @@ A simple interpreter for [Brain\*\*\*\*](https://en.wikipedia.org/wiki/Brainfuck
 
 1. Clone the repository and add waffle to path
 
-- NOTE: _THIS COMMAND HAS BEEN TESTED AND ONLY WORKS ON LINUX/MACOS_
+- NOTE: For Windows: Enable [WSL](https://docs.microsoft.com/en-us/windows/wsl/install) and try running these commands. Open an issue if something goes wrong. 
 
 ```sh
 cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle && chmod +x installer.py && ./installer.py
