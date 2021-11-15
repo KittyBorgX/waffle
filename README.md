@@ -19,6 +19,7 @@ cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle && c
 - [ ] Native compiler ( Converting to assembly )
 - [x] Command line REPL
 - [ ] Online REPL
+- [ ] Multithreading??
 
 ### Note:
 
