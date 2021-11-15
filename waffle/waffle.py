@@ -16,8 +16,13 @@ import sys
 from utils import usage, check_brackets, print_arr_length, colors
 from interpreter import interpret
 
+WAFFLE_VERSION = "0.1.0"
+
+
 def repl() -> None:
     try:
+        print(f"{colors.OKCYAN}Welcome to Waffle Version {colors.ENDC} {WAFFLE_VERSION}")
+        print(f"Use the {colors.OKGREEN} Ctrl + C {colors.ENDC} Key Combination to quit out of the REPL")
         while True:
             try:
                 repl_input = input(">> ")
@@ -46,7 +51,7 @@ def main():
             usage()
             sys.exit(0)
         elif sys.argv[1] == '-v' or sys.argv[1] == '--version':
-            print('Waffle v0.1')
+            print(f'{WAFFLE_VERSION}')
             sys.exit(0)
 
         elif sys.argv[1] == '-f' or sys.argv[1] == '--file':

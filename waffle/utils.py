@@ -12,6 +12,7 @@
 
 import sys
 
+
 def usage():
     print("")
     print("Waffle's Interpreter!")
