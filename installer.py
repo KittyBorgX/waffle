@@ -15,8 +15,11 @@
 
 from posixpath import expanduser
 from sys import platform
-from os import environ, path, stat
+from os import environ, path, stat, system
 from pathlib import Path
+
+# error free?
+shell = environ.get('SHELL', '')
 
 def check_file_existance(file_name):
     if not path.exists(file_name) or stat(file_name).st_size == 0:
@@ -25,14 +28,20 @@ def check_file_existance(file_name):
 def write_to_rc(file_name):
     check_file_existance(file_name)
 
-    with open(file_name, 'a') as file:
-        file.write(f'alias waffle="{Path(__file__).parent.resolve()}/waffle/waffle.py"')
-        print("Installed waffle in PATH. Run waffle -h to confirm the success of installation")
+    # check if installer has already ran, warn
+    for line in open(file_name, 'r').readlines():
+        if 'alias waffle' in line:
+            print('Waffle alias found in your configuration file, not finishing instalation.')
+            exit()
 
-if platform in ['linux', 'linux2', 'darwin']:
-    # error free?
-    shell = environ.get('SHELL', '')
-    
+    open(file_name, 'a').write(f'alias waffle=\'{Path(__file__).parent.resolve()}/waffle/waffle.py\'')
+
+    print('Successfully made waffle globally acessible, reloading shell for changes to take effect...')
+
+    # auto reload shell
+    system(shell)
+
+if platform in ['linux', 'linux2', 'darwin']:    
     if not shell:
         print('The SHELL environmental variable is missing.')
         exit()
