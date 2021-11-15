@@ -13,7 +13,7 @@
 # ===----------------------------------------------------------------------===//
 
 import sys
-from utils import usage, check_brackets, print_arr_length, colors
+from utils import usage, check_brackets, print_arr_length, colours
 from interpreter import interpret
 
 WAFFLE_VERSION = "0.1.0"
@@ -21,8 +21,8 @@ WAFFLE_VERSION = "0.1.0"
 
 def repl() -> None:
     try:
-        print(f"{colors.OKCYAN}Welcome to Waffle Version {colors.ENDC} {WAFFLE_VERSION}")
-        print(f"Use the {colors.OKGREEN} Ctrl + C {colors.ENDC} Key Combination to quit out of the REPL")
+        print(f"{colours.CYAN}Welcome to Waffle Version {colours.END_COLOUR} {WAFFLE_VERSION}")
+        print(f"Use the {colours.GREEN} Ctrl + C {colours.END_COLOUR} Key Combination to quit out of the REPL")
         while True:
             try:
                 repl_input = input(">> ")

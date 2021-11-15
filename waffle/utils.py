@@ -1,4 +1,4 @@
-# ===----------------- utils.py - Functions for output and colors -------------===//
+# ===----------------- utils.py - Functions for output and colours -------------===//
 #
 # This source file is part of the waffle open source project
 #
@@ -12,26 +12,26 @@
 
 import sys
 
-
 def usage():
     print("")
-    print("Waffle's Interpreter!")
+    print(f"{colours.BLUE}Waffle's Interpreter!{colours.END_COLOUR}")
     print("")
-    print("USAGE: ")
-    print("    waffle [OPTIONS] [SUBCOMMAND]")
+    print(f"{colours.CYAN}USAGE: {colours.END_COLOUR}")
+    print(f"{colours.GREEN}    waffle [OPTIONS] [SUBCOMMAND]{colours.END_COLOUR}")
     print("")
-    print("OPTIONS:")
-    print("    -h, --help                     Prints help information")
-    print("    -v, --version                  Prints the compiler version")
+    print(f"{colours.CYAN}OPTIONS:{colours.END_COLOUR}")
+    print(f"{colours.GREEN}    -h, --help                     Prints help information{colours.END_COLOUR}")
+    print(f"{colours.GREEN}    -v, --version                  Prints the compiler version{colours.END_COLOUR}")
     print("")
-    print("SUBCOMMAND:")
-    print("    -f, --file [File]              Specify the input file")
-    print("    -df, --debug-file [File]       Run the code and debug the file for any errors")
+    print(f"{colours.CYAN}SUBCOMMAND:")
+    print(f"{colours.GREEN}    -f, --file [File]              Specify the input file{colours.END_COLOUR}")
+    print(f"{colours.GREEN}    -df, --debug-file [File]       Run the code and debug the file for any errors{colours.END_COLOUR}")
     print("")
-    print("OPTIONAL SUBCOMMANDS:")
-    print("    -o, --output [File]            Specify the output filename")
+    print(f"{colours.CYAN}OPTIONAL SUBCOMMANDS:{colours.END_COLOUR}")
+    print(f"{colours.GREEN}    -o, --output [File]            Specify the output filename{colours.END_COLOUR}")
     print("")
-    print("Example Usage: waffle examples/helloworld.bf -o hello")
+    print(f"{colours.YELLOW}Example Usage: waffle examples/helloworld.bf -o hello{colours.END_COLOUR}")
+    print("")
 
 def check_brackets(input_file):
     brackets = 0
@@ -41,26 +41,26 @@ def check_brackets(input_file):
         elif input_file[i] == "]":
             brackets -= 1
         if brackets < 0:
-            print(f"{colors.FAIL}No matching brackets found! Please close the [ bracket at index {i} and check again{colors.ENDC}")
+            print(f"{colours.RED}No matching brackets found! Please close the [ bracket at index {i} and check again{colours.END_COLOUR}")
             sys.exit(0)
     if brackets == 0:
-        print(f"{colors.OKGREEN}Bracket Matching: True{colors.ENDC}")
+        print(f"{colours.GREEN}Bracket Matching: True{colours.END_COLOUR}")
         return 0
         # return -1
     else:
-        print(f"{colors.FAIL}No matching brackets found! Please close the [ bracket and check again{colors.ENDC}")
+        print(f"{colours.RED}No matching brackets found! Please close the [ bracket and check again{colours.END_COLOUR}")
         sys.exit(0)
 
 def print_arr_length(array):
-    print(f"{colors.OKGREEN}Array Length: {len(array)}{colors.ENDC}")
+    print(f"{colours.GREEN}Array Length: {len(array)}{colours.END_COLOUR}")
 
-class colors:
+class colours:
     HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
+    BLUE = '\033[94m'
+    CYAN = '\033[96m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
+    END_COLOUR = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
