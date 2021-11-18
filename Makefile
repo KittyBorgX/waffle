@@ -13,10 +13,10 @@
 all: butter
 
 build:
-	gcc src/pancake.c -o bin/pancake
+	gcc src/waffle.c -o bin/waffle
 
 run:
-	./bin/pancake
+	./bin/waffle
 
 butter:
 	make build && make run

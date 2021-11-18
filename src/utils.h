@@ -1,10 +1,13 @@
 #include <stdio.h>
+#include "colours.h"
 
 int help()
 {
-    printf("\nPancake VM!\n\n");
+    colour_blue();
+    printf("\nwaffle VM!\n\n");
+    reset();
     printf("USAGE: \n");
-    printf("    pancake [OPTIONS] [SUBCOMMAND]\n\n");
+    printf("    waffle [OPTIONS] [SUBCOMMAND]\n\n");
     printf("OPTIONS:\n");
     printf("    -h, --help                     Prints help information\n");
     printf("    -v, --version                  Prints the compiler version\n\n");
