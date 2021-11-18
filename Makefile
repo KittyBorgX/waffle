@@ -10,13 +10,13 @@
 #
 # ===----------------------------------------------------------------------===//
 
-init:
-	pip install -r requirements.txt
+all: butter
 
-test:
-	py.test tests
+build:
+	gcc src/pancake.c -o bin/pancake
 
 run:
-	python waffle/waffle.py
+	./bin/pancake
 
-.PHONY: init test run
+butter:
+	make build && make run
