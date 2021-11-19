@@ -1,27 +1,13 @@
-// #include <stdio.h>
-// #include "utils.h"
-
-// int main(int argc, char *argv[])
-// {
-//     int MIN_REQUIRED = 2;
-//     printf("%d", argc);
-//     if (argc < MIN_REQUIRED)
-//     {
-//         return help();
-//     }
-
-//     return 0;
-// }
-
 #include <stdio.h>
+#include "utils.h"
 
-
-int main()
+int main(int argc, char *argv[])
 {
-    red();
-    printf("Hello ");
-    yellow();
-    printf("world\n");
-    reset();
+    int MIN_REQUIRED = 2;
+    if (argc < MIN_REQUIRED)
+    {
+        return help();
+    }
+
     return 0;
 }

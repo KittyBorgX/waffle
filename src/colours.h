@@ -20,6 +20,11 @@ void colour_cyan()
     printf("\033[96m");
 }
 
+void colour_green()
+{
+    printf("\033[92m");
+}
+
 void reset()
 {
     printf("\033[0m");
