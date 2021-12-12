@@ -34,7 +34,7 @@ def write_to_rc(file_name):
             print('Waffle alias found in your configuration file, not finishing instalation.')
             exit()
 
-    open(file_name, 'a').write(f'alias waffle=\'{Path(__file__).parent.resolve()}/waffle/waffle.py\'')
+    open(file_name, 'a').write(f'alias waffle=\'{Path(__file__).parent.resolve()}/waffle.py\'')
 
     print('Successfully made waffle globally acessible, reloading shell for changes to take effect...')
 
