@@ -12,10 +12,9 @@ A multithreaded interpreter for [Brain\*\*\*\*](https://en.wikipedia.org/wiki/Br
 cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle
 ```
 
-2. Install to path
-
+2. Give permissions and install to path
 ```sh
-sudo make install
+sudo chmod +x install.sh && ./install.sh
 ```
 
 3. Close your current terminal session and open a new session.
