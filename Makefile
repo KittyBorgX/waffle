@@ -20,6 +20,6 @@ run:
 	python waffle/waffle.py
 
 install:
-	mv waffle ${HOME}/.waffle && cd ${HOME}/.waffle && cd ${HOME} && rm -rf waffle/ 
+	mv waffle ${HOME}/.waffle && cd ${HOME}/.waffle && cd ${HOME}
 
 .PHONY: init test run
