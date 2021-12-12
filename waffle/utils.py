@@ -14,7 +14,7 @@ import sys
 
 def usage():
     print("")
-    print(f"{colours.BLUE}Waffle's Interpreter!{colours.END_COLOUR}")
+    print(f"{colours.BLUE}Waffle Interpreter!{colours.END_COLOUR}")
     print("")
     print(f"{colours.CYAN}USAGE: {colours.END_COLOUR}")
     print(f"{colours.GREEN}    waffle [OPTIONS] [SUBCOMMAND]{colours.END_COLOUR}")

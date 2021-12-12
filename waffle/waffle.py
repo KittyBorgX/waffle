@@ -22,8 +22,9 @@ WAFFLE_VERSION = "0.1.0"
 
 def repl() -> None:
     try:
-        print(f"{colours.CYAN}Welcome to Waffle Version {colours.END_COLOUR} {WAFFLE_VERSION}")
-        print(f"Use the {colours.GREEN} Ctrl + C {colours.END_COLOUR} Key Combination to quit out of the REPL")
+        print(f"{colours.CYAN}Waffle Interpreter, Version {WAFFLE_VERSION} {colours.END_COLOUR}")
+        print(f"Use {colours.GREEN}Ctrl + C{colours.END_COLOUR} Key Combination to quit out of the REPL")
+        print(f"Use {colours.GREEN}waffle --help{colours.END_COLOUR} to learn more\n")
         while True:
             try:
                 repl_input = input(">> ")
