@@ -19,4 +19,7 @@ test:
 run:
 	python waffle/waffle.py
 
+install:
+	mv waffle ${HOME}/.waffle && cd ${HOME}/.waffle && ./installer.py && cd ${HOME} && rm -rf waffle/ 
+
 .PHONY: init test run
