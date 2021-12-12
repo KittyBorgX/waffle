@@ -4,15 +4,23 @@ A multithreaded interpreter for [Brain\*\*\*\*](https://en.wikipedia.org/wiki/Br
 
 ### Getting started:
 
-1. Clone the repository and add waffle to path
-
 - NOTE: For Windows: Enable [WSL](https://docs.microsoft.com/en-us/windows/wsl/install) and try running these commands. Open an issue if something goes wrong.
 
+1. Clone the repository
+
 ```sh
-cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle && chmod +x installer.py && ./installer.py
+cd $HOME && git clone https://github.com/KittyBorgX/waffle.git && cd waffle
 ```
 
-2. Confirm the installation by running `waffle --help`
+2. Install to path
+
+```sh
+sudo make install
+```
+
+3. Close your current terminal session and open a new session.
+
+4. Confirm the installation by running `waffle --help`
 
 ### TODO:
 
