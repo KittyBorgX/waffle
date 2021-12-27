@@ -33,7 +33,7 @@ def repl() -> None:
                 except:
                     out = exec(repl_input)
                     if out != None:
-                        print(out)
+                        print(f"\n{out}")
             except Exception as e:
                 print(f"Error: {e}")
     except KeyboardInterrupt as e:
